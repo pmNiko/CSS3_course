@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+
+:root {
+  --primary-color: #2658e4;
+  --font: "Inter", sans-serif;
+  --grid-columns: repeat(5, 1fr);
+  --grid-rows: repeat(8, 1fr);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30px 0;
+}
+
+.card {
+  max-width: 1000px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: var(--grid-columns);
+  grid-template-rows: var(--grid-rows);
+}
+
+.card::after {
+  content: "";
+  grid-column: 1/4;
+  grid-row: 1/-1;
+  z-index: -1;
+  background-image: url(img/mgs3.webp);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 10px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+.card__content {
+  grid-column: 3/-1;
+  grid-row: 2/-2;
+  padding: 30px;
+  color: white;
+  background: var(--primary-color);
+}
+
+.card__title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.card__paragraph {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.card__cta {
+  display: inline-block;
+  background: white;
+  color: var(--primary-color);
+  text-decoration: none;
+  padding: 20px 45px;
+}
+
+/*  modo responsive */
+
+@media (width <= 768px) {
+  .card::after {
+    grid-column: 1/-2;
+  }
+
+  .card__content {
+    grid-column: -1/2;
+  }
+}
+
+@media (width <= 425px) {
+  :root {
+    --grid-columns: 1fr;
+    --grid-rows: repeat(2, 1fr);
+  }
+
+  .card::after,
+  .card__content {
+    grid-column: span 1;
+    grid-row: span 1;
+    box-shadow: none;
+  }
+}
