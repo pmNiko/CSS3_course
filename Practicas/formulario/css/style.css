@@ -1,10 +1,125 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
 
 :root {
-  --primary-color: blue;
+  --primary-color: #5050f0;
   --font: "Inter", sans-serif;
+  --grid-columns: repeat(8, 1fr);
+  --grid-rows: 1fr;
+  --clip: polygon(45% 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
 body {
   font-family: "Inter", sans-serif;
+}
+
+.contact {
+  min-height: 600px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: var(--grid-columns);
+  grid-template-rows: var(--grid-rows);
+}
+
+.contact__picture {
+  grid-column: 5/-1;
+  grid-row: 1/-1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.contact__picture::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: var(--primary-color);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  clip-path: var(--clip);
+}
+
+.contact__img {
+  width: 90%;
+}
+
+.contact__form {
+  grid-column: 1/5;
+  grid-row: 1/-1;
+  display: grid;
+  width: 70%;
+  place-self: center;
+  gap: 30px;
+  grid-auto-rows: max-content;
+}
+
+.contact__title {
+  font-size: 2.5rem;
+}
+.contact__title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--primary-color);
+  margin-top: 10px;
+}
+
+.contact__input {
+  padding: 10px 10px;
+  font-family: var(--font);
+  width: 100%;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.contact__input--area {
+  resize: none;
+  height: 150px;
+}
+
+.contact__cta {
+  display: block;
+  background: var(--primary-color);
+  width: 200px;
+  padding: 18px 0;
+  color: white;
+  font-family: var(--font);
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  box-shadow: 0 2px 10px -4px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos responsive */
+
+@media (width <= 768px) {
+  :root {
+    --grid-columns: 1fr;
+    --grid-rows: max-content 1fr;
+    --clip: polygon(0 0, 0% 100%, 100% 0);
+  }
+
+  .contact__form {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    padding: 40px 0 40px;
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .contact__picture {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .contact__img {
+    max-width: 400px;
+  }
 }
