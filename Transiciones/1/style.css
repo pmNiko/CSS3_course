@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  outline: 1px solid black;
+  width: 90%;
+  height: 500px;
+  margin: 30px auto;
+}
+
+.element {
+  background: crimson;
+  width: 120px;
+  height: 120px;
+  color: white;
+  font-family: serif;
+  position: relative;
+  /* transition: all 1s; */
+
+  left: 0;
+
+  /* transition-property: clip-path, background, transform; */
+  transition-duration: 1.5s;
+  /* transition-timing-function: steps(3, end); */
+  /* transition-timing-function: ease-in-out; */
+  /* transition-timing-function: cubic-bezier(1, -0.14, 0, 1.33); */
+
+  clip-path: circle(70%);
+  /* transition-property: clip-path, transform;
+  transition-duration: 3s, 2s;
+  transition-delay: 0s, 2s; */
+  transition: clip-path 3s 0s, transform 2s 0.2s;
+}
+
+.container:hover .element {
+  /* left: 30px; */
+  /* background: steelblue; */
+  /* transform: translate(300px) scale(0.5); */
+  transform: translate(300px);
+  clip-path: circle(50%);
+}
