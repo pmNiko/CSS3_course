@@ -1,0 +1,102 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: serif;
+  background-color: #f1f1f1;
+  height: 100vh;
+  display: grid;
+  gap: 2em;
+  align-content: start;
+  justify-content: center;
+  padding: 2em 0;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  background-color: #680aa2;
+  color: white;
+  padding: 13px 30px;
+  border-radius: 50px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button--opacity::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.3;
+  clip-path: circle(0 at center);
+  transition: clip-path 0.5s;
+}
+
+.button--opacity:hover::before {
+  clip-path: circle(100% at center);
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+}
+
+.button--bg {
+  background-color: white;
+  color: #680aa2;
+  position: relative;
+}
+
+.button--bg::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #680aa2;
+  clip-path: circle(0 at top left);
+  transition: clip-path 0.5s;
+}
+.button--bg:hover::before {
+  clip-path: circle(140% at top left);
+}
+
+.button--bg:hover {
+  color: white;
+}
+
+.link {
+  display: inline-block;
+  color: #680aa2;
+  text-decoration: none;
+  font-size: 1.5rem;
+  justify-self: start;
+}
+
+.link::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin-top: 10px;
+  background-color: #680aa2;
+  clip-path: circle(0 at right);
+  /* clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%); */
+  transition: clip-path 0.5s;
+}
+
+.link:hover::after {
+  clip-path: circle(100% at center);
+  /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
+}
