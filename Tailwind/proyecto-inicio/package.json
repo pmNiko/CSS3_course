@@ -1,0 +1,17 @@
+{
+  "name": "proyecto-inicio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tailwindcss -i ./src/css/tailwind.css -o ./src/css/style.css --watch",
+    "prod": "npx tailwind  -o ./src/css/style.css --minify "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
